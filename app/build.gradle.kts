@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.alejandrosanchez.calculadora_alejandrosanchez"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.alejandrosanchez.calculadora_alejandrosanchez"

@@ -13,4 +13,6 @@
     <string name="botonSuma">+</string>
     <string name="botonResta">-</string>
     <string name="botonBorrar">C</string>
+    <string name="resultado"></string>
+    <string name="botonIgual">=</string>
 </resources>
