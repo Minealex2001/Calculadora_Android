@@ -21,22 +21,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button numero0 = findViewById(R.id.button0);
-        Button numero1 = findViewById(R.id.button1);
-        Button numero2 = findViewById(R.id.button2);
-        Button numero3 = findViewById(R.id.button3);
-        Button numero4 = findViewById(R.id.button4);
-        Button numero5 = findViewById(R.id.button5);
-        Button numero6 = findViewById(R.id.button6);
-        Button numero7 = findViewById(R.id.button7);
-        Button numero8 = findViewById(R.id.button8);
-        Button numero9 = findViewById(R.id.button9);
-        Button suma = findViewById(R.id.buttonmas);
-        Button resta = findViewById(R.id.buttonresta);
-        Button igual = findViewById(R.id.buttonresultado);
-        Button borrar = findViewById(R.id.buttonborrar);
+        Button numero0 = findViewById(R.id.buttonNumberZero);
+        Button numero1 = findViewById(R.id.buttonNumberOne);
+        Button numero2 = findViewById(R.id.buttonNumberTwo);
+        Button numero3 = findViewById(R.id.buttonNumberThree);
+        Button numero4 = findViewById(R.id.buttonNumberFour);
+        Button numero5 = findViewById(R.id.buttonNumberFive);
+        Button numero6 = findViewById(R.id.buttonNumberSix);
+        Button numero7 = findViewById(R.id.buttonNumberSeven);
+        Button numero8 = findViewById(R.id.buttonNumberEight);
+        Button numero9 = findViewById(R.id.buttonNumberNine);
+        Button suma = findViewById(R.id.buttonSimbolPlus);
+        Button resta = findViewById(R.id.buttonSimbolSubtract);
+        Button igual = findViewById(R.id.buttonSimbolEqual);
+        Button borrar = findViewById(R.id.buttonSimbolClean);
 
-        TextView pantalla = findViewById(R.id.textView);
+        TextView pantalla = findViewById(R.id.resultView);
 
         numero0.setOnClickListener(v -> {
             if (!sumaclick && !restaclick) {
