@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> calcular = new ArrayList<>();
-    private Boolean sumaclick = false;
+    private String valor = "";
     private Calculadora calculadora = new Calculadora();
 
     @SuppressLint("SetTextI18n")
@@ -41,84 +41,91 @@ public class MainActivity extends AppCompatActivity {
         TextView pantalla = findViewById(R.id.resultView);
 
         numero0.setOnClickListener(v -> {
-            calcular.add("0");
+            valor += "0";
             pantalla.setText(pantalla.getText() + "0");
         });
 
 
         numero1.setOnClickListener(v -> {
-            calcular.add("1");
+            valor += "1";
             pantalla.setText(pantalla.getText() + "1");
         });
 
 
         numero2.setOnClickListener(v -> {
-            calcular.add("2");
+            valor += "2";
             pantalla.setText(pantalla.getText() + "2");
         });
 
 
         numero3.setOnClickListener(v -> {
-            calcular.add("3");
+            valor += "3";
             pantalla.setText(pantalla.getText() + "3");
         });
 
 
         numero4.setOnClickListener(v -> {
-            calcular.add("4");
+            valor += "4";
             pantalla.setText(pantalla.getText() + "4");
         });
 
 
         numero5.setOnClickListener(v -> {
-            calcular.add("5");
+            valor += "5";
             pantalla.setText(pantalla.getText() + "5");
         });
 
 
         numero6.setOnClickListener(v -> {
-            calcular.add("6");
+            valor += "6";
             pantalla.setText(pantalla.getText() + "6");
         });
 
 
         numero7.setOnClickListener(v -> {
-            calcular.add("7");
+            valor += "7";
             pantalla.setText(pantalla.getText() + "7");
         });
 
 
         numero8.setOnClickListener(v -> {
-            calcular.add("8");
+            valor += "8";
             pantalla.setText(pantalla.getText() + "8");
         });
 
 
         numero9.setOnClickListener(v -> {
-            calcular.add("9");
+            valor += "9";
             pantalla.setText(pantalla.getText() + "9");
         });
 
 
         suma.setOnClickListener(v -> {
+                calcular.add(valor);
                 calcular.add("+");
                 pantalla.setText(pantalla.getText() + "+");
+                valor = "";
 
         });
 
         resta.setOnClickListener(v -> {
+                calcular.add(valor);
                 calcular.add("-");
                 pantalla.setText(pantalla.getText() + "-");
+                valor = "";
 
         });
 
         multiplicar.setOnClickListener(v -> {
-            calcular.add("*");
+                calcular.add(valor);
+                calcular.add("*");
                 pantalla.setText(pantalla.getText() + "*");
+                valor = "";
         });
 
 
         igual.setOnClickListener(v -> {
+            calcular.add(valor);
             calculadora.hacerOperacion(calcular);
             pantalla.setText(calcular.get(0));
         });
