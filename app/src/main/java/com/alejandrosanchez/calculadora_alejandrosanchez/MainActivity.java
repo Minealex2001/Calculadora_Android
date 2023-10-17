@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> calcular = new ArrayList<>();
     private Boolean sumaclick = false;
-    private Boolean restaclick = false;
-    private Boolean multiplicarclick = false;
     private Calculadora calculadora = new Calculadora();
 
     @SuppressLint("SetTextI18n")
