@@ -9,18 +9,52 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * Clase principal de la aplicaciónç
+ * @version 1.0
+ * @since 1.0
+ * @see AppCompatActivity
+ * @see android.os.Bundle
+ * @see android.widget.Button
+ * @see android.widget.TextView
+ * @see java.util.ArrayList
+ * @see Calculadora
+ * @see Calculadora#hacerOperacion(ArrayList)
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * ArrayList que contiene los valores a calcular
+     * @see ArrayList
+     * @see String
+     * @see Calculadora
+     * @see Calculadora#hacerOperacion(ArrayList)
+     * @since 1.0
+     * @version 1.0
+     */
     private ArrayList<String> calcular = new ArrayList<>();
     private String valor = "";
     private Calculadora calculadora = new Calculadora();
 
+    /**
+     * Método que se ejecuta al iniciar la aplicación
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        /**
+         * Método que se ejecuta al iniciar la aplicación
+         */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /**
+         * Botones de la aplicación
+         */
 
         Button numero0 = findViewById(R.id.button0);
         Button numero1 = findViewById(R.id.button1);
@@ -40,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView pantalla = findViewById(R.id.resultView);
 
+        /**
+         * Eventos de los botones
+         */
         numero0.setOnClickListener(v -> {
             valor += "0";
             pantalla.setText(pantalla.getText() + "0");
@@ -128,11 +165,13 @@ public class MainActivity extends AppCompatActivity {
             calcular.add(valor);
             calculadora.hacerOperacion(calcular);
             pantalla.setText(calcular.get(0));
+            valor = "";
         });
 
         borrar.setOnClickListener(v -> {
             pantalla.setText("");
             calcular.clear();
+            valor = "";
         });
 
     }
