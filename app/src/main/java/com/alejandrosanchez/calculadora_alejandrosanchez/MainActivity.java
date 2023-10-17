@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
     private String variable2 = "";
     private Boolean sumaclick = false;
     private Boolean restaclick = false;
+    private Boolean multiplicarclick = false;
+    private Calculadora calculadora = new Calculadora();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -33,13 +35,14 @@ public class MainActivity extends AppCompatActivity {
         Button numero9 = findViewById(R.id.button9);
         Button suma = findViewById(R.id.buttonSuma);
         Button resta = findViewById(R.id.buttonResta);
+        Button multiplicar = findViewById(R.id.buttonMultiplicar);
         Button igual = findViewById(R.id.buttonIgual);
         Button borrar = findViewById(R.id.buttonBorrar);
 
         TextView pantalla = findViewById(R.id.resultView);
 
         numero0.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="0";
             } else {
                 variable2 += "0";
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero1.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="1";
             } else {
                 variable2 += "1";
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero2.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="2";
             } else {
                 variable2 += "2";
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero3.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="3";
             } else {
                 variable2 += "3";
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero4.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="4";
             } else {
                 variable2 += "4";
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero5.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="5";
             } else {
                 variable2 += "5";
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero6.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="6";
             } else {
                 variable2 += "6";
@@ -109,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero7.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="7";
             } else {
                 variable2 += "7";
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero8.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="8";
             } else {
                 variable2 += "8";
@@ -129,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         numero9.setOnClickListener(v -> {
-            if (!sumaclick && !restaclick) {
+            if (!sumaclick && !restaclick && !multiplicarclick) {
                 variable1 +="9";
             } else {
                 variable2 += "9";
@@ -152,17 +155,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        multiplicar.setOnClickListener(v -> {
+            if (!multiplicarclick) {
+                multiplicarclick = true;
+                pantalla.setText(pantalla.getText() + "*");
+            }
+        });
+
 
         igual.setOnClickListener(v -> {
             if (sumaclick) {
-                variable1 = String.valueOf(Integer.parseInt(variable1) + Integer.parseInt(variable2));
+                variable1 = calculadora.suma(variable1, variable2);
                 pantalla.setText(pantalla.getText() + "=" + variable1);
                 sumaclick = false;
             } else if (restaclick) {
-                variable1 = String.valueOf(Integer.parseInt(variable1) - Integer.parseInt(variable2));
+                variable1 = calculadora.resta(variable1, variable2);
                 pantalla.setText(pantalla.getText() + "=" + variable1);
                 restaclick = false;
+            } else if (multiplicarclick) {
+                variable1 = calculadora.multiplicar(variable1, variable2);
+                pantalla.setText(pantalla.getText() + "=" + variable1);
+                multiplicarclick = false;
             }
+            variable2 = "";
         });
 
         borrar.setOnClickListener(v -> {
